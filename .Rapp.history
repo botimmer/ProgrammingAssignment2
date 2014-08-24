@@ -1,0 +1,108 @@
+?is.null
+a <- matrix(1:6, 3,2)
+a
+b <- solve(a)
+a <- matrix (1:4, 2,2)
+a
+b <- solve(a)
+b
+?$
+?getmean
+?getmean()
+makeVector <- function(x = numeric()) {#
+m <- NULL#
+        set <- function(y) {#
+                x <<- y#
+                m <<- NULL#
+        }#
+        get <- function() x#
+        setinverse <- function(solve) m <<- inverse#
+        getinverse <- function() m#
+        list(set = set, get = get,#
+             setinverse = setinverse,#
+             getinverse = getinverse)#
+}#
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix#
+##  In case the calculation has been done and the matrix is unchanged it uses data from cache#
+#
+cacheSolve <- function(x, ...) {#
+        ## Return a matrix that is the inverse of 'x'#
+                m <- x$getinverse()#
+        ## Checks wether the cache is full or empty#
+        if(!is.null(m)) {#
+                message("getting cached data")#
+                return(m)#
+        }#
+        data <- x$getinverse()#
+        m <- solve(data, ...)#
+        x$setinverse(m)#
+        m#
+}
+a <- matrix (1:4, 2,2)
+a
+cacheSolve(a)
+makeVector <- function(x = numeric()) {#
+m <- NULL#
+        set <- function(y) {#
+                x <<- y#
+                m <<- NULL#
+        }#
+        get <- function() x#
+        setinverse <- function(solve) m <<- inverse#
+        getinverse <- function() m#
+        list(set = set, get = get,#
+             setinverse = setinverse,#
+             getinverse = getinverse)#
+}#
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix#
+##  In case the calculation has been done and the matrix is unchanged it uses data from cache#
+#
+cacheSolve <- function(x, ...) {#
+        ## Return a matrix that is the inverse of 'x'#
+                m <- x[getinverse()]#
+        ## Checks wether the cache is full or empty#
+        if(!is.null(m)) {#
+                message("getting cached data")#
+                return(m)#
+        }#
+        data <- x[getinverse()]#
+        m <- solve(data, ...)#
+        x[setinverse(m)]#
+        m#
+}
+a
+cacheSolve(a)
+traceback
+makeVector <- function(x = numeric()) {#
+m <- NULL#
+        set <- function(y) {#
+                x <<- y#
+                m <<- NULL#
+        }#
+        get <- function() x#
+        setinverse <- function(solve) m <<- inverse#
+        getinverse <- function() m#
+        list(set = set, get = get,#
+             setinverse = setinverse,#
+             getinverse = getinverse)#
+}#
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix#
+##  In case the calculation has been done and the matrix is unchanged it uses data from cache#
+#
+cacheSolve <- function(x, ...) {#
+        ## Return a matrix that is the inverse of 'x'#
+                m <- x["getinverse()"]#
+        ## Checks wether the cache is full or empty#
+        if(!is.null(m)) {#
+                message("getting cached data")#
+                return(m)#
+        }#
+        data <- x["getinverse()"]#
+        m <- solve(data, ...)#
+        x["setinverse(m)"]#
+        m#
+}
+cacheSolve (a)
+cacheSolve(b)
+c <- matrix (1:9, 3,3)
+cacheSolve(c)
